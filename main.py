@@ -4,9 +4,7 @@ from Schema import UnifiedSalesMetadataExtractor
 import logging
 import traceback
 from pymilvus import connections
-import sys
-from gevent import  pywsgi
-from geventwebsocket.handler import WebSocketHandler
+
 
 app = Flask(__name__)
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -129,13 +127,4 @@ def cleanup(exception=None):
     connections.disconnect("default")
 
 if __name__ == '__main__':
-    # app = create_app()
-    # sys.stdout.reconfigure(encoding='utf-8')
-    # try:
-    #     logger.info("Starting WebSocket server...")
-    #     server = pywsgi.WSGIServer(('0.0.0.0', 5500), application=app)  # Changed port to 5500
-    #     print("Server listening on: http://0.0.0.0:5500")
-    #     server.serve_forever()
-    # except Exception as e:
-    #     print(e)
     app.run(debug=True)

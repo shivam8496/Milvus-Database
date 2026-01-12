@@ -1,0 +1,5 @@
+Flask
+pymilvus
+sentence-transformers
+gevent
+gevent-websocket
